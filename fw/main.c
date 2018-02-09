@@ -1,25 +1,19 @@
-#include <regs.h>
-
-//unsigned int clock(void)
-//{
-//	unsigned char h = TIM1_CNTRH;
-//	unsigned char l = TIM1_CNTRL;
-//	return ((unsigned int)(h) << 8 | l);
-//}
+//#include <regs.h>
+#include <stm8s_gpio.h>
 
 main()
 {
-	int d;
-	PA_DDR=0x8;
-	PA_CR1=0x8;
+    long d;
+    GPIO_Init(GPIOA, GPIO_PIN_3, GPIO_MODE_OUT_PP_LOW_SLOW);
+    GPIO_Init(GPIOC, GPIO_PIN_7 | GPIO_PIN_6, GPIO_MODE_OUT_PP_LOW_SLOW);
 
-//	while(1) {
-//		PA_ODR = (clock() % 1000 < 500 ) << 3;
-//	}
-	do {
-		PA_ODR ^= 0x8;
-		for(d = 0; d < 29000; d++) {
-		}
-	} while (1);
+    for(d = 0; d < 33333; d++) {}
+    GPIO_WriteHigh(GPIOC, GPIO_PIN_7);
+    for(d = 0; d < 33333; d++) {}
+    GPIO_WriteHigh(GPIOC, GPIO_PIN_6);
+
+    while (1) {
+        GPIO_WriteReverse(GPIOA, GPIO_PIN_3);
+        for(d = 0; d < 29000; d++){}
+    }
 }
-
