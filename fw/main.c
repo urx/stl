@@ -1,8 +1,8 @@
-//#include <regs.h>
 #include <stm8s_gpio.h>
 
 main()
 {
+
     long d;
     GPIO_Init(GPIOA, GPIO_PIN_3, GPIO_MODE_OUT_PP_LOW_SLOW);
     GPIO_Init(GPIOC, GPIO_PIN_7 | GPIO_PIN_6, GPIO_MODE_OUT_PP_LOW_SLOW);
