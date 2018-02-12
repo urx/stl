@@ -19,6 +19,7 @@ void setup_timers(unsigned int timeout)
 {
     TIM2_DeInit();
     TIM2_TimeBaseInit(TIM2_PRESCALER_128, timeout * 15.6);
+    TIM2_ClearFlag(TIM2_FLAG_UPDATE);
     TIM2_ITConfig(TIM2_IT_UPDATE, ENABLE);
     TIM2_Cmd(ENABLE);
 }
@@ -105,6 +106,7 @@ void toggle_lamp()
 
 INTERRUPT_HANDLER(TIM2_handler, ITC_IRQ_TIM2_OVF)
 {
+
     TIM2_ClearFlag(TIM2_FLAG_UPDATE);
     toggle_lamp();
 }
@@ -141,7 +143,7 @@ main()
 
     s1: 0-250ms, s2: 250-500ms, s3: 500-750ms, s4: 750-1000ms
     */
-    setup_timers(1000/(lamps_count+1+0));
+    setup_timers(900/(lamps_count+1+1));
     enableInterrupts();
 
 
