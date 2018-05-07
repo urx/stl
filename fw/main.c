@@ -1,6 +1,16 @@
+#include <stm8s.h>
 #include <stm8s_gpio.h>
+#include <stm8s_flash.h>
 
 static unsigned char lamps_count = 0;
+static volatile unsigned char learning_on = 0;
+static unsigned char need_update_uptime = 0;
+
+volatile unsigned int uptime = 800; //default value
+
+//#define TESTBUILD 1
+
+//#define LEARN 1
 
 void configure_clock()
 {
@@ -26,7 +36,7 @@ void setup_timers(unsigned int timeout)
 
 void gpio_init_common()
 {
-    GPIO_Init(GPIOD, GPIO_PIN_4 | GPIO_PIN_5 | GPIO_PIN_6, GPIO_MODE_IN_FL_NO_IT);
+    GPIO_Init(GPIOD, GPIO_PIN_3 | GPIO_PIN_4 | GPIO_PIN_5 | GPIO_PIN_6, GPIO_MODE_IN_FL_NO_IT);
     GPIO_Init(GPIOA, GPIO_PIN_3, GPIO_MODE_OUT_PP_LOW_SLOW);
 }
 
@@ -70,6 +80,90 @@ unsigned char read_lamps_count()
     return cnt;
 }
 
+
+#if defined(LEARN)
+unsigned char learn_mode()
+{
+    return GPIO_ReadInputPin(GPIOD, GPIO_PIN_3);
+}
+
+
+void learn()
+{
+    int d = 0;
+    uptime = 0;
+    learning_on = 1;
+    FLASH_DeInit();
+    FLASH_ITConfig(ENABLE);
+    FLASH_Unlock(FLASH_MEMTYPE_DATA);
+    //setup_timers(50);
+    //enableInterrupts();
+    
+    for(;;) {
+        //if (need_update_uptime) {
+        //    disableInterrupts();
+            FLASH_ProgramWord(FLASH_DATA_START_PHYSICAL_ADDRESS, uptime);
+            uptime += 6;
+         //   need_update_uptime = 0;
+         //   enableInterrupts();
+        //}
+
+    }
+    /*for(;;) {
+        GPIO_WriteHigh(GPIOA, GPIO_PIN_3);
+        for(d = 0; d < 10000; d++){}
+        GPIO_WriteLow(GPIOA, GPIO_PIN_3);
+        for(d = 0; d < 10000; d++){}
+    }*/
+}
+
+void update_uptime()
+{
+    /* 4000ms = 256, so each 50ms interval = 3*/
+    if (uptime < 80) {
+        uptime += 1;
+        need_update_uptime = 1;
+    } else {
+        GPIO_WriteHigh(GPIOA, GPIO_PIN_3);
+    }
+}
+
+
+void read_stored_config()
+{
+    unsigned long timeout = 0;
+    FLASH_DeInit();
+    FLASH_ITConfig(ENABLE);
+    FLASH_Unlock(FLASH_MEMTYPE_DATA);
+
+
+
+    timeout = FLASH_ReadByte(FLASH_DATA_START_PHYSICAL_ADDRESS+3);
+    timeout |= (timeout << 8) | FLASH_ReadByte(FLASH_DATA_START_PHYSICAL_ADDRESS+2);
+    timeout |= (timeout << 16) | FLASH_ReadByte(FLASH_DATA_START_PHYSICAL_ADDRESS+1);
+    timeout |= (timeout << 24) | FLASH_ReadByte(FLASH_DATA_START_PHYSICAL_ADDRESS+0);
+
+    if (timeout != 0) {
+        uptime = timeout;
+        return;
+    }
+
+    GPIO_WriteHigh(GPIOA, GPIO_PIN_3);
+    while (1) {
+        //if (need_update_uptime) {
+        //    disableInterrupts();
+            if (timeout < 4000) {
+                FLASH_ProgramWord(FLASH_DATA_START_PHYSICAL_ADDRESS, timeout);
+                timeout = timeout + 6;
+            }
+         //   need_update_uptime = 0;
+         //   enableInterrupts();
+        //}
+    }
+
+}
+#endif
+
 void toggle_lamp() 
 {
     static unsigned char lamp = 0; 
@@ -108,7 +202,21 @@ INTERRUPT_HANDLER(TIM2_handler, ITC_IRQ_TIM2_OVF)
 {
 
     TIM2_ClearFlag(TIM2_FLAG_UPDATE);
-    toggle_lamp();
+#if defined(LEARN)
+    if (learning_on)
+        update_uptime();
+
+#endif
+
+#ifndef TESTBUILD
+        toggle_lamp();
+#else
+        GPIO_WriteReverse(GPIOA, GPIO_PIN_3);
+#endif
+
+#if defined(LEARN)
+    }
+#endif
 }
 
 
@@ -121,7 +229,17 @@ main()
     configure_clock();
 
     gpio_init_common();
+
+#if defined(LEARN)
+    if (learn_mode())
+        learn(); //function with no return
+#endif
+
     lamps_count = read_lamps_count();
+
+#if defined(LEARN)
+    read_stored_config();
+#endif
 
     gpio_init_output(lamps_count);
 
@@ -143,18 +261,22 @@ main()
 
     s1: 0-250ms, s2: 250-500ms, s3: 500-750ms, s4: 750-1000ms
     */
-    setup_timers(900/(lamps_count+1+1));
+    setup_timers(uptime/(lamps_count+1+1));
     enableInterrupts();
 
 
     while (1) {
+#ifdef TESTBUILD
+        for (d = 0; d < 40000; d++) {}
+#else       
         for (i = 0; i < lamps_count; i++) {
             GPIO_WriteHigh(GPIOA, GPIO_PIN_3);
             for(d = 0; d < 29000; d++){}
             GPIO_WriteLow(GPIOA, GPIO_PIN_3);
             for(d=0; d< 19000; d++){}
         }
-        for (d = 0; d < 40000; d++) {}       
+        for (d = 0; d < 40000; d++) {}
+#endif       
     }
 
 }
