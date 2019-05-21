@@ -6,12 +6,13 @@ CC=sdcc
 OS=$(shell uname)
 
 ifeq (Darwin,$(OS))
-LFLAGS= -mstm8 -L/usr//local/Cellar/sdcc/3.6.0/share/sdcc/lib/stm8/ -lstm8 -L../../stm8spl/sysroot/lib -lstm8spl
+LFLAGS= -mstm8 -L/usr/local/share/sdcc/lib/stm8/ -lstm8 -L./stm8spl/ -lstm8spl
+#LFLAGS= -mstm8 -L/usr//local/Cellar/sdcc/3.6.0/share/sdcc/lib/stm8/ -lstm8 -L../../stm8spl/sysroot/lib -lstm8spl
 else
 LFLAGS=-l$(MCU) -lstm8spl -L../../stm8spl/sysroot/lib/ 
 endif
 
-CFLAGS=-m$(MCU) -I. --std-c11 -I../../stm8spl/sysroot/include -DSDCC -DSTM8S003
+CFLAGS=-m$(MCU) -I. --std-c11 -I./stm8spl/include -DSDCC -DSTM8S003
 
 
 
@@ -20,7 +21,12 @@ SRCS:=main.c
 OBJS:=$(SRCS:.c=.rel)
 FW=fw
 
-all: $(FW)
+all: stm8spl $(FW)
+
+stm8spl:
+	$(MAKE) -C ./stm8spl
+
+.PHONY: stm8spl
 
 %.rel: %.c
 	$(CC) $(CFLAGS) -c $<

@@ -1,0 +1,6 @@
+[submodule "fw/libstm8s"]
+	path = fw/libstm8s
+	url = https://github.com/tymmothy/libstm8s.git
+[submodule "fw/stm8spl"]
+	path = fw/stm8spl
+	url = gitolite@jurets.ru:stm8spl
