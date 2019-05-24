@@ -2,15 +2,18 @@
 #include <stm8s_gpio.h>
 #include <stm8s_flash.h>
 
-static unsigned char lamps_count = 0;
-static volatile unsigned char learning_on = 0;
-static unsigned char need_update_uptime = 0;
+static unsigned char lamps_count;
+static volatile unsigned char learning_on;
+static unsigned char need_update_uptime;
 
-volatile unsigned int uptime = 800; //default value
+static unsigned char lamp; // lamp counter
+
+
+volatile unsigned int uptime; // = 800; //default value
 
 //#define TESTBUILD 1
 
-//#define LEARN 1
+#define LEARN 1
 
 void configure_clock()
 {
@@ -87,6 +90,24 @@ unsigned char learn_mode()
     return GPIO_ReadInputPin(GPIOD, GPIO_PIN_3);
 }
 
+void FLASH_PW(uint32_t Address, uint32_t Data)
+{
+  /* Check parameters */
+  assert_param(IS_FLASH_ADDRESS_OK(Address));
+
+  /* Enable Word Write Once */
+  FLASH->CR2 |= FLASH_CR2_WPRG;
+  FLASH->NCR2 &= (uint8_t)(~FLASH_NCR2_NWPRG);
+
+  /* Write one byte - from lowest address*/
+  *((PointerAttr uint8_t*)(MemoryAddressCast)Address)       = *((uint8_t*)(&Data));
+  /* Write one byte*/
+  *(((PointerAttr uint8_t*)(MemoryAddressCast)Address) + 1) = *((uint8_t*)(&Data)+1);
+  /* Write one byte*/
+  *(((PointerAttr uint8_t*)(MemoryAddressCast)Address) + 2) = *((uint8_t*)(&Data)+2);
+  /* Write one byte - from higher address*/
+  *(((PointerAttr uint8_t*)(MemoryAddressCast)Address) + 3) = *((uint8_t*)(&Data)+3);
+}
 
 void learn()
 {
@@ -96,25 +117,25 @@ void learn()
     FLASH_DeInit();
     FLASH_ITConfig(ENABLE);
     FLASH_Unlock(FLASH_MEMTYPE_DATA);
-    //setup_timers(50);
-    //enableInterrupts();
+    setup_timers(50);
+    enableInterrupts();
     
     for(;;) {
-        //if (need_update_uptime) {
-        //    disableInterrupts();
-            FLASH_ProgramWord(FLASH_DATA_START_PHYSICAL_ADDRESS, uptime);
+        if (need_update_uptime) {
+            disableInterrupts();
+            FLASH_PW(FLASH_DATA_START_PHYSICAL_ADDRESS, uptime);
             uptime += 6;
-         //   need_update_uptime = 0;
-         //   enableInterrupts();
-        //}
+            need_update_uptime = 0;
+            enableInterrupts();
+        }
 
     }
-    /*for(;;) {
+    for(;;) {
         GPIO_WriteHigh(GPIOA, GPIO_PIN_3);
         for(d = 0; d < 10000; d++){}
         GPIO_WriteLow(GPIOA, GPIO_PIN_3);
         for(d = 0; d < 10000; d++){}
-    }*/
+    }
 }
 
 void update_uptime()
@@ -131,12 +152,11 @@ void update_uptime()
 
 void read_stored_config()
 {
-    unsigned long timeout = 0;
+    unsigned long timeout;
     FLASH_DeInit();
+ 
     FLASH_ITConfig(ENABLE);
     FLASH_Unlock(FLASH_MEMTYPE_DATA);
-
-
 
     timeout = FLASH_ReadByte(FLASH_DATA_START_PHYSICAL_ADDRESS+3);
     timeout |= (timeout << 8) | FLASH_ReadByte(FLASH_DATA_START_PHYSICAL_ADDRESS+2);
@@ -150,15 +170,17 @@ void read_stored_config()
 
     GPIO_WriteHigh(GPIOA, GPIO_PIN_3);
     while (1) {
-        //if (need_update_uptime) {
-        //    disableInterrupts();
+        if (need_update_uptime) {
+            disableInterrupts();
             if (timeout < 4000) {
                 FLASH_ProgramWord(FLASH_DATA_START_PHYSICAL_ADDRESS, timeout);
-                timeout = timeout + 6;
+		        while (!(FLASH->IAPSR & (1 << FLASH_IAPSR_EOP)));
+                
+		        timeout += 6;
             }
-         //   need_update_uptime = 0;
-         //   enableInterrupts();
-        //}
+            need_update_uptime = 0;
+            enableInterrupts();
+        }
     }
 
 }
@@ -166,13 +188,10 @@ void read_stored_config()
 
 void toggle_lamp() 
 {
-    static unsigned char lamp = 0; 
     if ( lamp > lamps_count)
         return;
 
     switch(lamp) {
-        default:
-            break;
         case 1:
             GPIO_WriteHigh(GPIOC, GPIO_PIN_7);
             break;
@@ -203,7 +222,7 @@ INTERRUPT_HANDLER(TIM2_handler, ITC_IRQ_TIM2_OVF)
 
     TIM2_ClearFlag(TIM2_FLAG_UPDATE);
 #if defined(LEARN)
-    if (learning_on)
+    if (learning_on) {
         update_uptime();
 
 #endif
@@ -222,9 +241,12 @@ INTERRUPT_HANDLER(TIM2_handler, ITC_IRQ_TIM2_OVF)
 
 main()
 {
+    learning_on = 0;
+    need_update_uptime = 0;
+    uptime = 800;
+    lamp = 0;
     long d = 0;
     unsigned char i = 0;
-
 
     configure_clock();
 
