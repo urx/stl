@@ -44,5 +44,5 @@ flash:
 	stm8flash -c $(FLASHER) -p $(DEVICE) -w $(FW).ihx
 
 clean:
-	@rm -f *.sym *.asm *.lst *.rel *.ihx *lk* *.rst *.cdb *.map
+	@rm -f *.sym *.asm *.lst *.rel *.ihx *lk* *.rst *.cdb *.map *.adb
 	@make -C ./stm8spl clean
