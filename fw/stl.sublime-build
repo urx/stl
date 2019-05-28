@@ -1,0 +1,14 @@
+{
+	"shell_cmd": "make"
+	"variants":
+	[
+		{
+			"name": "clean",
+			"cmd": ["make", "clean"]
+		},
+		{
+			"name": "debug",
+			"cmd: ["make", "DEBUG=y"]
+		}
+	]
+}

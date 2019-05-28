@@ -1,0 +1,22 @@
+{
+	"folders":
+	[
+		{
+			"path": "."
+		}
+	],
+	"build_systems":
+	[
+		{
+			"cmd": ["make", "DEBUG=y"],
+			"name": "debug build",
+			"working_dir": "${project_path}",
+			"file_regex": "^(^\\S.*\\.\\w+):(\\d+):(\\d+): (\\w+ ?\\w+?): (.*)$"
+		}
+	],
+	"settings":
+	{
+		"sublimegdb_workingdir": "${project_path:./}",
+		"sublimegdb_commandline": "stm8-gdb --interpreter=mi fw.elf"
+	}
+}

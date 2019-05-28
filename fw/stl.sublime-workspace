@@ -1,0 +1,582 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"RXB",
+				"RXB0CTRL_REG"
+			],
+			[
+				"TXR",
+				"TXRTSCTRL_B0RTSM_OFF"
+			],
+			[
+				"B",
+				"BFPCTRL_B0BFM_OFF"
+			],
+			[
+				"print",
+				"DEBUG_PRINT"
+			],
+			[
+				"mcp2515_set",
+				"mcp2515_set_can_speed"
+			],
+			[
+				"CANI",
+				"CANINTE_RX1IE_MASK"
+			],
+			[
+				"mcp2515_int",
+				"mcp2515_int_source_t"
+			],
+			[
+				"CANIN",
+				"CANINTE_RX1IE_OFF"
+			],
+			[
+				"CANINT",
+				"CANINTE_RX1IE_OFF"
+			],
+			[
+				"TXB",
+				"TXBxCTRL_ABTF_OFF"
+			],
+			[
+				"T",
+				"TXBxCTRL_MLOA_OFF"
+			],
+			[
+				"TXb",
+				"TXBxCTRL_TXERR_MASK"
+			],
+			[
+				"TXBx",
+				"TXBxCTRL_TXREQ_OFF"
+			],
+			[
+				"CANCTRL_A",
+				"CANCTRL_ABAT_OFF"
+			],
+			[
+				"CANCTRL_",
+				"CANCTRL_OSM_OFF"
+			],
+			[
+				"CANCTRL_CLK",
+				"CANCTRL_CLKPRE_OFF"
+			],
+			[
+				"CANCTRL",
+				"CANCTRL_CLKPRE_OFF"
+			],
+			[
+				"n",
+				"n"
+			],
+			[
+				"CANST",
+				"CANSTAT_OPMOD_OFF"
+			],
+			[
+				"CANS",
+				"CANSTAT_ICOD_OFF"
+			],
+			[
+				"mcp2515_re",
+				"mcp2515_read_reg"
+			],
+			[
+				"mcp2",
+				"mcp2515_can_speed_t"
+			],
+			[
+				"RXB1CTRL_RM",
+				"RXB1CTRL_RXM_OFF"
+			],
+			[
+				"RXB1CTRL_",
+				"RXB1CTRL_RXRTR_OFF"
+			],
+			[
+				"RXB1",
+				"RXB1CTRL_FILHIT_OFF"
+			],
+			[
+				"RXB0CTRL_RXM",
+				"RXB0CTRL_RXM_OFF"
+			],
+			[
+				"RXB0CTRL",
+				"RXB0CTRL_RXRTR_OFF"
+			],
+			[
+				"RXB0CTRL_BU",
+				"RXB0CTRL_BUKT_OFF"
+			],
+			[
+				"SPI",
+				"SPI_BUS"
+			],
+			[
+				"spi",
+				"spi_bus_no"
+			],
+			[
+				"CAN_50",
+				"CAN_500KBPS"
+			],
+			[
+				"mcp2515_s",
+				"mcp2515_set_can_speed"
+			],
+			[
+				"mcp",
+				"mcp2515_write_reg"
+			],
+			[
+				"CNF1",
+				"CNF1_REG"
+			],
+			[
+				"MCP",
+				"MCP2515_CMD_WRITE_REG"
+			],
+			[
+				"CNF3",
+				"CNF3_SOF_OFF"
+			],
+			[
+				"CNF2_B",
+				"CNF2_BTLMODE_OFF"
+			],
+			[
+				"CNF2_S",
+				"CNF2_SAM_OFF"
+			],
+			[
+				"CNF2",
+				"CNF2_PRSEG_OFF"
+			],
+			[
+				"CNF1_",
+				"CNF1_SJW_OFF"
+			],
+			[
+				"CNF",
+				"CNF1_BRP_OFF"
+			],
+			[
+				"ou",
+				"out_rxb1"
+			],
+			[
+				"out",
+				"out_rxb0"
+			],
+			[
+				"len",
+				"length"
+			],
+			[
+				"RX",
+				"RXBxDLC_DLC_OFF"
+			],
+			[
+				"R",
+				"RXB0DLC_REG"
+			],
+			[
+				"MC",
+				"MCP2515_CMD_READ_REG"
+			],
+			[
+				"CAN",
+				"CANCTRL_REQOP0_OFF"
+			],
+			[
+				"sp",
+				"SPI_BUS"
+			],
+			[
+				"mc",
+				"mcp2515_read_message"
+			],
+			[
+				"MCP2515_",
+				"MCP2515_CMD_READ_RXB1D0"
+			],
+			[
+				"spi_",
+				"spi_transfer_8"
+			],
+			[
+				"updater",
+				"updater_own_version"
+			],
+			[
+				"wri",
+				"write_update_env"
+			],
+			[
+				"read",
+				"read_update_env"
+			],
+			[
+				"updater_",
+				"updater_our_version"
+			],
+			[
+				"eq",
+				"eql_ptr"
+			],
+			[
+				"mtd_info",
+				"mtd_info_user"
+			],
+			[
+				"equal_",
+				"equal_is_necessary"
+			],
+			[
+				"env_sa",
+				"env_sanity_checker"
+			],
+			[
+				"check",
+				"check_length"
+			],
+			[
+				"mtd",
+				"mtd_device"
+			],
+			[
+				"O_RD",
+				"O_RDONLY"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "main.c",
+			"settings":
+			{
+				"buffer_size": 7749,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "Package Control Messages\n========================\n\nSublimeGit\n----------\n\n  Welcome to SublimeGit\n  =====================\n  \n  SublimeGit is a full-featured, commercial plugin for integrating\n  git into Sublime Text 2 and 3. To read more about it, or purchase\n  a license, go to https://sublimegit.net.\n  \n  \n  Quickstart\n  ----------\n  Make sure to restart Sublime Text after installing SublimeGit.\n  \n  Run the command \"Git: Status\" to open the status view. This\n  is where you'll spend most of the time when interacting with\n  git through SublimeGit. From here you can stage/unstage files,\n  manage stashes, view diffs, and initiate a commit.\n  \n  Other commands are available in the command palette (cmd+shift+p\n  on OS X, ctrl+shift+p on Windows/Linux). They are all prefixed\n  with \"Git:\" and most of them do exactly what it says on the label.\n  \n  \n  Tutorial\n  --------\n  For the full tutorial, go to:\n  \n      https://docs.sublimegit.net/tutorial.html\n  \n  \n  Trouble Getting Started?\n  ------------------------\n  If you are on windows, or don't usually use git from the command\n  line, there might be some things you'll need to set up. Go here\n  for instructions on how to get set up:\n  \n      https://docs.sublimegit.net/quickstart.html\n  \n  \n  Issues, Questions or Bugs?\n  --------------------------\n  Send a mail to support@sublimegit.net, or report it in the issue\n  tracker:\n  \n      https://github.com/SublimeGit/SublimeGit/issues\n",
+			"settings":
+			{
+				"buffer_size": 1447,
+				"line_ending": "Unix",
+				"name": "Package Control Messages",
+				"read_only": true,
+				"scratch": true
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"pack",
+				"Package Control: Install Package"
+			],
+			[
+				"paca",
+				"Package Control: Install Package"
+			],
+			[
+				"package",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/jurets/projects/stl/fw"
+	],
+	"file_history":
+	[
+		"/Volumes/xtensa/esp-open-rtos/extras/mcp2515/mcp2515_regs.h",
+		"/Volumes/xtensa/esp-open-rtos/examples/mcp2515_example/main.c",
+		"/Volumes/xtensa/esp-open-rtos/extras/mcp2515/mcp2515.h",
+		"/Volumes/xtensa/esp-open-rtos/extras/mcp2515/mcp2515.c",
+		"/Volumes/xtensa/esp-open-rtos/examples/bme680/bme680_heating_profiles/bme680_heating_profiles.c",
+		"/Volumes/xtensa/esp-open-rtos/open_esplibs/libmain/misc.c",
+		"/Volumes/xtensa/esp-open-rtos/include/espressif/esp_misc.h",
+		"/Volumes/xtensa/esp-open-rtos/examples/experiments/unaligned_load/unaligned_load.c",
+		"/Volumes/xtensa/esp-open-rtos/extras/mcp2515/mcp2515_defs.h",
+		"/Volumes/xtensa/esp-open-rtos/examples/spi_test/spi_test.c",
+		"/Volumes/xtensa/esp-open-rtos/extras/ssd1306/ssd1306.c",
+		"/Volumes/xtensa/esp-open-rtos/examples/lvgl_ssd1306/main.c",
+		"/Volumes/xtensa/esp-open-rtos/core/include/esp/gpio.h",
+		"/Volumes/xtensa/esp-open-rtos/examples/button/button.c",
+		"/Volumes/xtensa/esp-open-rtos/examples/mcp2515_example/Makefile",
+		"/Volumes/xtensa/esp-open-rtos/core/include/esp/spi.h",
+		"/Volumes/xtensa/esp-open-rtos/examples/mcp4725_test/main.c",
+		"/Volumes/xtensa/esp-open-rtos/extras/mcp2515/component.mk",
+		"/Volumes/xtensa/esp-open-rtos/extras/mcp4725/component.mk",
+		"/Volumes/xtensa/esp-open-rtos/extras/mcp4725/mcp4725.c",
+		"/Volumes/xtensa/esp-open-rtos/core/esp_spi.c",
+		"/Volumes/xtensa/esp-open-rtos/extras/lsm303d/lsm303d.c",
+		"/Volumes/xtensa/esp-open-rtos/extras/bme680/bme680_platform.c",
+		"/Volumes/xtensa/esp-open-rtos/examples/ssd1306_example/main.c",
+		"/Volumes/xtensa/esp-open-rtos/examples/l3gd20h/l3gd20h_example.c",
+		"/Volumes/xtensa/esp-open-rtos/examples/lvgl_ssd1306/lv_drv_conf.h",
+		"/Volumes/xtensa/esp-open-rtos/examples/mcp2515/main.c",
+		"/Users/jurets/Desktop/Projects/canhacker/readme.md",
+		"/Users/jurets/networking",
+		"/Volumes/yuivanov/openembedded-core/build/tmp-uclibc/work/mips32el-linux-uclibc/busybox/1.22.1-r0/busybox-1.22.1/networking/udhcp/dhcpc.c",
+		"/Volumes/yuivanov/lbapi/src/variables.c",
+		"/Volumes/yuivanov/lbapi/tests/get_serial.c",
+		"/Volumes/yuivanov/openembedded-core/build/tmp-uclibc/work/mips32el-linux-uclibc/busybox/1.22.1-r0/busybox-1.22.1/networking/ifupdown.c",
+		"/Volumes/lbapi-1/include/lbapi.h",
+		"/Volumes/lbapi-1/src/otp.c",
+		"/Volumes/lbapi-1/tests/iswifi.c",
+		"/Volumes/lbapi-1/tests/check_otp.c",
+		"/Volumes/lbapi-1/tests/isprod.c",
+		"/Volumes/lbapi-1/tests/is_prod.c",
+		"/Volumes/LikeUpdater-2/usr/share/lb/env-functions",
+		"/Volumes/LikeUpdater-2/etc/init.d/update-firmware",
+		"/Volumes/LikeUpdater-2/usr/bin/lb-update",
+		"/Volumes/LikeUpdater-2/etc/init.d/updater-verify-load",
+		"/Users/jurets/smartsdk/arch/broadcom/nexusplatform_p.h",
+		"/Users/jurets/smartsdk/arch/broadcom/nexusplatform.h",
+		"/Users/jurets/smartsdk/arch/broadcom/nexusplatform.cpp",
+		"/Users/jurets/Desktop/smartlabs/busybox/console-tools/loadfont.c",
+		"/Users/jurets/Desktop/superwave/fb_text.c",
+		"/Users/jurets/Desktop/smartlabs/busybox/miscutils/fbsplash.c",
+		"/Users/jurets/Desktop/smartlabs/busybox/miscutils/fbsplash.cfg",
+		"/Users/jurets/libcfeenv.c",
+		"/Users/jurets/lbapi.h",
+		"/Users/jurets/cfe_env_read.c",
+		"/Users/jurets/Downloads/cfe_env.c",
+		"/Users/jurets/Desktop/superwave/lbapi/Makefile",
+		"/Users/jurets/Desktop/superwave/lbapi/src/libcfeenv.c",
+		"/Users/jurets/Desktop/superwave/lbapi/src/lib_queue.c",
+		"/Users/jurets/Desktop/superwave/release_unified_cfe_v17.4/cfe/main/cfe_devfuncs.c",
+		"/Users/jurets/Desktop/superwave/release_unified_cfe_v17.4/bsp/bcm97xxx_devs.c",
+		"/Users/jurets/Desktop/superwave/release_unified_cfe_v17.4/opencable/lib/ocap/cdl/src/cdl_bootinfo_nvram.c",
+		"/Users/jurets/Desktop/superwave/release_unified_cfe_v17.4/cfe/main/nvram_subr.c",
+		"/Users/jurets/Desktop/superwave/release_unified_cfe_v17.4/cfe/main/env_subr.c",
+		"/Users/jurets/Desktop/superwave/nvram/nvram.c",
+		"/Users/jurets/Desktop/superwave/lbapi/src/env_subr.c",
+		"/Users/jurets/Desktop/superwave/nvram.c",
+		"/Users/jurets/Desktop/nvram.c",
+		"/Users/jurets/Desktop/superwave/initramfs/etc/init.d/ubi",
+		"/Users/jurets/Desktop/superwave/initramfs/quirks.sh",
+		"/Users/jurets/Desktop/superwave/initramfs/init"
+	],
+	"find":
+	{
+		"height": 26.0
+	},
+	"find_in_files":
+	{
+		"height": 101.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "main.c",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7749,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4448,
+								4448
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2389.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1447,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								919,
+								960
+							]
+						],
+						"settings":
+						{
+							"auto_indent": false,
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_width": 2,
+							"word_wrap": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 26.0
+	},
+	"input":
+	{
+		"height": 38.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "stl.sublime-project",
+	"replace":
+	{
+		"height": 48.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 243.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
