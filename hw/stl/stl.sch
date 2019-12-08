@@ -1,5 +1,4 @@
 EESchema Schematic File Version 4
-LIBS:stl-cache
 EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
@@ -42,24 +41,18 @@ Text GLabel 2400 2450 0    50   Input ~ 0
 L3_STM_OUT
 Text GLabel 2400 2550 0    50   Input ~ 0
 L4_STM_OUT
-Text GLabel 2400 2650 0    50   Input ~ 0
-L5_STM_OUT
 Wire Wire Line
 	2800 2350 2400 2350
 Wire Wire Line
 	2800 2450 2400 2450
 Wire Wire Line
 	2800 2550 2400 2550
-Wire Wire Line
-	2800 2650 2400 2650
 Text GLabel 5800 2100 0    50   Input ~ 0
-L2_STM_OUT
-Text GLabel 5800 2300 0    50   Input ~ 0
 L4_STM_OUT
-Text GLabel 5800 2400 0    50   Input ~ 0
-L5_STM_OUT
+Text GLabel 5800 2500 0    50   Input ~ 0
+L2_STM_OUT
 Wire Wire Line
-	6200 2100 5800 2100
+	6200 2100 6050 2100
 $Comp
 L power:+3.3V #PWR011
 U 1 1 5DEB775C
@@ -389,7 +382,7 @@ Wire Wire Line
 Wire Wire Line
 	7300 1900 7300 1600
 $Comp
-L Transistor_FET:IRF9383M Q6
+L Device:Q_PMOS_GSD Q6
 U 1 1 5DEC93CF
 P 10150 1550
 F 0 "Q6" H 10355 1596 50  0000 L CNN
@@ -446,17 +439,6 @@ Wire Wire Line
 Wire Wire Line
 	10250 1050 10250 1100
 $Comp
-L Transistor_FET:IRF9383M Q2
-U 1 1 5DECD2E0
-P 8550 1500
-F 0 "Q2" H 8755 1546 50  0000 L CNN
-F 1 "5505" H 8755 1455 50  0000 L CNN
-F 2 "Package_TO_SOT_SMD:TO-252-2" H 8550 1500 50  0001 C CIN
-F 3 "https://www.infineon.com/dgdl/irf9383mpbf.pdf?fileId=5546d462533600a40153561169a11dab" H 8550 1500 50  0001 L CNN
-	1    8550 1500
-	1    0    0    -1  
-$EndComp
-$Comp
 L Device:R R7
 U 1 1 5DECD4C6
 P 8250 1250
@@ -501,7 +483,7 @@ Wire Wire Line
 Wire Wire Line
 	8650 1800 8750 1800
 $Comp
-L Transistor_FET:IRF9383M Q3
+L Device:Q_PMOS_GSD Q3
 U 1 1 5DED75E9
 P 8550 3050
 F 0 "Q3" H 8755 3096 50  0000 L CNN
@@ -556,7 +538,7 @@ Wire Wire Line
 Wire Wire Line
 	8650 3350 8750 3350
 $Comp
-L Transistor_FET:IRF9383M Q7
+L Device:Q_PMOS_GSD Q7
 U 1 1 5DED8D30
 P 10150 3050
 F 0 "Q7" H 10355 3096 50  0000 L CNN
@@ -611,7 +593,7 @@ Wire Wire Line
 Wire Wire Line
 	10250 3350 10350 3350
 $Comp
-L Transistor_FET:IRF9383M Q8
+L Device:Q_PMOS_GSD Q8
 U 1 1 5DEDAC45
 P 10150 4300
 F 0 "Q8" H 10355 4346 50  0000 L CNN
@@ -668,7 +650,7 @@ Wire Wire Line
 Wire Wire Line
 	10250 3800 10250 3850
 $Comp
-L Transistor_FET:IRF9383M Q4
+L Device:Q_PMOS_GSD Q4
 U 1 1 5DEDAC64
 P 8550 4250
 F 0 "Q4" H 8755 4296 50  0000 L CNN
@@ -719,140 +701,16 @@ Wire Wire Line
 	8650 4450 8650 4550
 Wire Wire Line
 	8650 4550 8750 4550
-$Comp
-L Transistor_FET:IRF9383M Q5
-U 1 1 5DEDAC82
-P 8550 5800
-F 0 "Q5" H 8755 5846 50  0000 L CNN
-F 1 "5505" H 8755 5755 50  0000 L CNN
-F 2 "Package_TO_SOT_SMD:TO-252-2" H 8550 5800 50  0001 C CIN
-F 3 "https://www.infineon.com/dgdl/irf9383mpbf.pdf?fileId=5546d462533600a40153561169a11dab" H 8550 5800 50  0001 L CNN
-	1    8550 5800
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:R R10
-U 1 1 5DEDAC88
-P 8250 5550
-F 0 "R10" H 8180 5504 50  0000 R CNN
-F 1 "1K" H 8180 5595 50  0000 R CNN
-F 2 "Resistor_SMD:R_1206_3216Metric" V 8180 5550 50  0001 C CNN
-F 3 "~" H 8250 5550 50  0001 C CNN
-	1    8250 5550
-	-1   0    0    1   
-$EndComp
-$Comp
-L power:+12V #PWR025
-U 1 1 5DEDAC8E
-P 8650 5350
-F 0 "#PWR025" H 8650 5200 50  0001 C CNN
-F 1 "+12V" H 8665 5523 50  0000 C CNN
-F 2 "" H 8650 5350 50  0001 C CNN
-F 3 "" H 8650 5350 50  0001 C CNN
-	1    8650 5350
-	1    0    0    -1  
-$EndComp
-Text GLabel 8150 5800 0    50   Input ~ 0
-lamp5_ctrl
-Text GLabel 8750 6100 2    50   Input ~ 0
-lamp5_out
-Wire Wire Line
-	8650 5350 8250 5350
-Wire Wire Line
-	8250 5350 8250 5400
-Wire Wire Line
-	8650 5600 8650 5350
-Connection ~ 8650 5350
-Wire Wire Line
-	8250 5700 8250 5800
-Wire Wire Line
-	8250 5800 8350 5800
-Wire Wire Line
-	8250 5800 8150 5800
-Connection ~ 8250 5800
-Wire Wire Line
-	8650 6000 8650 6100
-Wire Wire Line
-	8650 6100 8750 6100
-$Comp
-L Transistor_FET:IRF9383M Q9
-U 1 1 5DEDACA0
-P 10150 5800
-F 0 "Q9" H 10355 5846 50  0000 L CNN
-F 1 "5505" H 10355 5755 50  0000 L CNN
-F 2 "Package_TO_SOT_SMD:TO-252-2" H 10150 5800 50  0001 C CIN
-F 3 "https://www.infineon.com/dgdl/irf9383mpbf.pdf?fileId=5546d462533600a40153561169a11dab" H 10150 5800 50  0001 L CNN
-	1    10150 5800
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:R R14
-U 1 1 5DEDACA6
-P 9850 5550
-F 0 "R14" H 9780 5504 50  0000 R CNN
-F 1 "1K" H 9780 5595 50  0000 R CNN
-F 2 "Resistor_SMD:R_1206_3216Metric" V 9780 5550 50  0001 C CNN
-F 3 "~" H 9850 5550 50  0001 C CNN
-	1    9850 5550
-	-1   0    0    1   
-$EndComp
-$Comp
-L power:+12V #PWR029
-U 1 1 5DEDACAC
-P 10250 5350
-F 0 "#PWR029" H 10250 5200 50  0001 C CNN
-F 1 "+12V" H 10265 5523 50  0000 C CNN
-F 2 "" H 10250 5350 50  0001 C CNN
-F 3 "" H 10250 5350 50  0001 C CNN
-	1    10250 5350
-	1    0    0    -1  
-$EndComp
-Text GLabel 9750 5800 0    50   Input ~ 0
-lamp3_ctrl
-Text GLabel 10350 6100 2    50   Input ~ 0
-lamp5_out
-Wire Wire Line
-	10250 5350 9850 5350
-Wire Wire Line
-	9850 5350 9850 5400
-Wire Wire Line
-	10250 5600 10250 5350
-Connection ~ 10250 5350
-Wire Wire Line
-	9850 5700 9850 5800
-Wire Wire Line
-	9850 5800 9950 5800
-Wire Wire Line
-	9850 5800 9750 5800
-Connection ~ 9850 5800
-Wire Wire Line
-	10250 6000 10250 6100
-Wire Wire Line
-	10250 6100 10350 6100
 Text GLabel 7300 2100 2    50   Input ~ 0
 lamp2_ctrl
-Text GLabel 7300 2200 2    50   Input ~ 0
-lamp3_ctrl
 Text GLabel 7300 2300 2    50   Input ~ 0
+lamp3_ctrl
+Text GLabel 7300 2500 2    50   Input ~ 0
 lamp4_ctrl
-Text GLabel 7300 2400 2    50   Input ~ 0
-lamp5_ctrl
-Text GLabel 5800 2200 0    50   Input ~ 0
+Text GLabel 5800 2300 0    50   Input ~ 0
 L3_STM_OUT
 Wire Wire Line
-	5800 2200 6200 2200
-Wire Wire Line
-	5800 2300 6200 2300
-Wire Wire Line
-	5800 2400 6200 2400
-Wire Wire Line
-	7000 2100 7300 2100
-Wire Wire Line
-	7000 2200 7300 2200
-Wire Wire Line
-	7000 2300 7300 2300
-Wire Wire Line
-	7000 2400 7300 2400
+	7000 2100 7100 2100
 Wire Wire Line
 	4550 4450 4550 4500
 Connection ~ 4550 4450
@@ -997,10 +855,6 @@ Text GLabel 4200 2250 2    50   Input ~ 0
 LEARN
 Wire Wire Line
 	4000 2250 4200 2250
-Text GLabel 2400 1850 0    50   Input ~ 0
-HEART_BEAT
-Wire Wire Line
-	2800 1850 2400 1850
 $Comp
 L Connector:Conn_01x02_Male LEARN1
 U 1 1 5DF38860
@@ -1059,17 +913,6 @@ Wire Wire Line
 Wire Wire Line
 	5050 1500 5050 1350
 $Comp
-L Connector:Screw_Terminal_01x05 OUT1
-U 1 1 5DF4EADC
-P 2950 5450
-F 0 "OUT1" H 3030 5492 50  0000 L CNN
-F 1 "Screw_Terminal_01x05" H 3030 5401 50  0000 L CNN
-F 2 "TerminalBlock_MetzConnect:TerminalBlock_MetzConnect_Type011_RT05505HBWC_1x05_P5.00mm_Horizontal" H 2950 5450 50  0001 C CNN
-F 3 "~" H 2950 5450 50  0001 C CNN
-	1    2950 5450
-	1    0    0    -1  
-$EndComp
-$Comp
 L power:+12V #PWR010
 U 1 1 5DF4EDAE
 P 2600 5150
@@ -1080,8 +923,6 @@ F 3 "" H 2600 5150 50  0001 C CNN
 	1    2600 5150
 	1    0    0    -1  
 $EndComp
-Text GLabel 2600 5650 0    50   Input ~ 0
-lamp5_out
 Text GLabel 2600 5550 0    50   Input ~ 0
 lamp4_out
 Text GLabel 2600 5450 0    50   Input ~ 0
@@ -1094,8 +935,6 @@ Wire Wire Line
 	2600 5450 2750 5450
 Wire Wire Line
 	2600 5550 2750 5550
-Wire Wire Line
-	2600 5650 2750 5650
 Wire Wire Line
 	2750 5250 2600 5250
 Wire Wire Line
@@ -1144,8 +983,6 @@ Wire Wire Line
 Connection ~ 8650 3800
 Wire Wire Line
 	8650 3800 8650 4050
-NoConn ~ 7000 2500
-NoConn ~ 7000 2600
 NoConn ~ 7000 2700
 $Comp
 L power:GND #PWR018
@@ -1159,19 +996,131 @@ F 3 "" H 6050 2800 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	6200 2500 6050 2500
-Wire Wire Line
-	6050 2500 6050 2600
-Wire Wire Line
-	6200 2600 6050 2600
-Connection ~ 6050 2600
-Wire Wire Line
-	6050 2600 6050 2700
-Wire Wire Line
 	6200 2700 6050 2700
-Connection ~ 6050 2700
 Wire Wire Line
 	6050 2700 6050 2800
 Wire Wire Line
 	1250 1150 2000 1150
+$Comp
+L Device:LED D2
+U 1 1 5DED1403
+P 2300 1850
+F 0 "D2" H 2291 2066 50  0000 C CNN
+F 1 "LED" H 2291 1975 50  0000 C CNN
+F 2 "LED_SMD:LED_1206_3216Metric" H 2300 1850 50  0001 C CNN
+F 3 "~" H 2300 1850 50  0001 C CNN
+F 4 "TO-3216BC-MYF" H 2300 1850 50  0001 C CNN "Field4"
+	1    2300 1850
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R15
+U 1 1 5DED14DF
+P 1850 1850
+F 0 "R15" H 1780 1804 50  0000 R CNN
+F 1 "68" H 1780 1895 50  0000 R CNN
+F 2 "Resistor_SMD:R_1206_3216Metric" V 1780 1850 50  0001 C CNN
+F 3 "~" H 1850 1850 50  0001 C CNN
+	1    1850 1850
+	0    1    1    0   
+$EndComp
+$Comp
+L power:GND #PWR030
+U 1 1 5DED15D5
+P 1450 1900
+F 0 "#PWR030" H 1450 1650 50  0001 C CNN
+F 1 "GND" H 1455 1727 50  0000 C CNN
+F 2 "" H 1450 1900 50  0001 C CNN
+F 3 "" H 1450 1900 50  0001 C CNN
+	1    1450 1900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1450 1900 1450 1850
+Wire Wire Line
+	1450 1850 1700 1850
+Wire Wire Line
+	2150 1850 2000 1850
+$Comp
+L Device:Q_PMOS_GSD Q2
+U 1 1 5DF05E66
+P 8550 1500
+F 0 "Q2" H 8756 1546 50  0000 L CNN
+F 1 "IRFR5505TRLPBF" H 8756 1455 50  0000 L CNN
+F 2 "Package_TO_SOT_SMD:TO-252-2" H 8750 1600 50  0001 C CNN
+F 3 "~" H 8550 1500 50  0001 C CNN
+	1    8550 1500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6200 2200 6050 2200
+Wire Wire Line
+	6050 2200 6050 2100
+Connection ~ 6050 2100
+Wire Wire Line
+	6050 2100 5800 2100
+Wire Wire Line
+	5800 2300 6050 2300
+Wire Wire Line
+	5800 2500 6050 2500
+Wire Wire Line
+	6200 2400 6050 2400
+Wire Wire Line
+	6050 2400 6050 2300
+Connection ~ 6050 2300
+Wire Wire Line
+	6050 2300 6200 2300
+Wire Wire Line
+	6200 2600 6050 2600
+Wire Wire Line
+	6050 2600 6050 2500
+Connection ~ 6050 2500
+Wire Wire Line
+	6050 2500 6200 2500
+Wire Wire Line
+	7000 2200 7100 2200
+Wire Wire Line
+	7100 2200 7100 2100
+Connection ~ 7100 2100
+Wire Wire Line
+	7100 2100 7300 2100
+Wire Wire Line
+	7000 2300 7100 2300
+Wire Wire Line
+	7000 2400 7100 2400
+Wire Wire Line
+	7100 2400 7100 2300
+Connection ~ 7100 2300
+Wire Wire Line
+	7100 2300 7300 2300
+Wire Wire Line
+	7000 2500 7100 2500
+Wire Wire Line
+	7000 2600 7100 2600
+Wire Wire Line
+	7100 2600 7100 2500
+Connection ~ 7100 2500
+Wire Wire Line
+	7100 2500 7300 2500
+$Comp
+L Connector:Screw_Terminal_01x04 J1
+U 1 1 5DF53380
+P 2950 5350
+F 0 "J1" H 3030 5342 50  0000 L CNN
+F 1 "Screw_Terminal_01x04" H 3030 5251 50  0000 L CNN
+F 2 "TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-4_1x04_P5.00mm_Horizontal" H 2950 5350 50  0001 C CNN
+F 3 "~" H 2950 5350 50  0001 C CNN
+	1    2950 5350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2800 1850 2450 1850
+NoConn ~ 2800 1650
+NoConn ~ 2800 1750
+NoConn ~ 2800 2650
+NoConn ~ 2800 2750
+NoConn ~ 4000 2150
+NoConn ~ 4000 2350
+NoConn ~ 4000 2450
+NoConn ~ 4000 2550
 $EndSCHEMATC
